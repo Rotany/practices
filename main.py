@@ -1,23 +1,14 @@
-import csv
-import codecs
+from  filter import filter_by_specific_values
+ 
 
-def leer_archivo_csv(nombre_archivo):
-    with open(nombre_archivo, 'r', ) as archivo:
-        lector_csv = csv.reader(archivo, delimiter= ';')
-        header = next(lector_csv)
-        
-        
-        for row in lector_csv:
-            iterable = zip( header, row)
-            print(iterable)
-            
-            
-            name_dict ={ key:values for key, values in iterable}
-            print(name_dict)
+import pandas
 
-archivo_csv = './data/movies.csv'
-datos = leer_archivo_csv(archivo_csv)
+nombre = './data/movies.csv'
+columns_to_filter = ['Genre', 'Year']
+values_to_filter = ['Drama', 1981]
 
+new_dataframe = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+print(new_dataframe)
 
 
     

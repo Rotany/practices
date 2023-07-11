@@ -1,15 +1,5 @@
 import csv
-# import codecs
-# def leer_archivo_csv(nombre_archivo):
-#     with open(nombre_archivo, 'r',   ) as archivo:
-#         lector_csv = csv.reader(archivo, delimiter= ';')
-#         header = next(lector_csv)  # Saltar la primera línea
-#         for row in lector_csv:
-#             iterable = zip(header, row)
-        
-#             datos = {key: values for key , values in iterable}
-#             print(datos)
-            
+
            
     
 # def filter_by_specific_values(nombre, columns_to_filter, values_to_filter):
@@ -40,82 +30,59 @@ import csv
 # except ValueError as error:
 #     print(str(error))
 
-# import pandas as pd
 
-# datos = pd.read_csv('./data/movies.csv')
-# print(datos)
-
-
-
-# def filter_by_specific_values(file_name, filter_columns, filter_values):
-#     filtered_data = []
     
-#     with open(file_name, 'r', newline='') as csvfile:
-#         reader = csv.reader(csvfile, delimiter= ';')
-#         for row in reader:
-#             # Verificar si las columnas de filtro y sus valores coinciden en la fila actual
-#             if all(row[column] == int(value) for column, value in zip(filter_columns, filter_values)):
-#                 filtered_data.append(row)
-                
-    
-#     return filtered_data
-
-# # Ejemplo de uso
-# file_name = './data/movies.csv'
-# filter_columns = ['Name', 'Year']
-# filter_values = ['Monkey', '1995']
-# filtered_movies = filter_by_specific_values(file_name, filter_columns, filter_values)
-
-# # Imprimir las películas filtradas
-# for movies in filtered_movies:
-#     print(movies['Name'])
-    
-    
-    
-# def filter_movies_by_genre_and_year(file_name, genre, year):
-#     filtered_movies = []
-    
-#     with open(file_name, 'r', newline='') as csvfile:
-#         reader = csv.DictReader(csvfile)
-#         for row in reader:
-#             if row['Genre'] == genre and row['Year'] == year:
-#                 filtered_movies.append(row)
-    
-#     return filtered_movies
-
-# # Ejemplo de uso
-# file_name = './data/movies.csv'
-# genre = 'Comedy'
-# year = '1992'
-
-# filtered_movies = filter_movies_by_genre_and_year(file_name, genre, year)
-
-# # Imprimir las películas filtradas
-# for movie in filtered_movies:
-#     print(movie['Name'])
-
-
-
 import pandas as pd
 
+def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
+    # Cargar el archivo CSV en un DataFrame
+    df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
+    
+    # Filtrar el DataFrame usando los valores y columnas especificados
+    filtered_df = df[df[columns_to_filter[0]] == values_to_filter[0]]
+    for i in range(1, len(columns_to_filter)):
+        filtered_df = filtered_df[filtered_df[columns_to_filter[i]] == values_to_filter[i]]
+    
+    # Devolver el DataFrame filtrado
+    return filtered_df
+
+# nombre = './data/movies.csv'
+# columns_to_filter = ['Genre', 'Year']
+# values_to_filter = ['Drama', 1981]
+
+# new_dataframe = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+# print(new_dataframe)
 
 
-archivo_csv = './data/movies.csv'
-datos = pd.read_csv(archivo_csv, encoding='latin1', delimiter= ';')
+# def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
+#     # Verificar la longitud de las listas
+#     if len(columns_to_filter) != len(values_to_filter):
+#         raise Exception("Por favor, 'columns_to_filter' y 'values_to_filter' deben tener la misma longitud.")
+    
+#     # Cargar el archivo CSV en un DataFrame
+#     df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
+    
+#     # Filtrar el DataFrame usando los valores y columnas especificados
+#     filtered_df = df.copy()
+#     for column, value in zip(columns_to_filter, values_to_filter):
+#         filtered_df = filtered_df[filtered_df[column] == value]
+    
+#     # Devolver el DataFrame filtrado
+#     return filtered_df
+# nombre = './data/movies.csv'
+# columns_to_filter = ['Genre', 'Year']
+# values_to_filter = ['Drama', 1981]
 
-#print(datos.head())  # Imprimir las primeras filas del archivo
+# filtered_data = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+# print(filtered_data)
 
 
 
+     
 
-# Filtrar por "Genre" y "Year"
+    
 
-def filter_by_specific_values(file_name, filter_columns, filter_values):
-
-filtro_name = datos['Genre'] == 'Drama'
-filtro_year = datos['Year'] == 1981
-datos_filtrados = datos.loc[filtro_name & filtro_year]
-print(datos_filtrados)
+    
 
 
     
