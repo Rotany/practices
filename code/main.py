@@ -51,6 +51,18 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    
+    
+from genre_and_year import plot_movies_by_genre_and_year
+
+def main():
+    genre = 'Drama'
+    year = 1981
+    plot_movies_by_genre_and_year(genre, year)
+
+if __name__ == '__main__':
+    main()
 
 
 
