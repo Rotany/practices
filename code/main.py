@@ -1,7 +1,7 @@
 from filter import filter_by_specific_values, export_to_csv
 import pandas as pd
 import matplotlib.pyplot as plt
-from plotting import plot_batman_data
+#from plotting import plot_batman_data
 
 
 
@@ -37,10 +37,20 @@ from plotting import plot_batman_data
 #plot_movie_data(csv_file)
 
 # Cargar el archivo CSV en un DataFrame
-df = pd.read_csv('./data/movies.csv', encoding='latin1', delimiter= ';')
+#df = pd.read_csv('./data/movies.csv', encoding='latin1', delimiter= ';')
 
 # Llamar a la función para graficar los datos
-plot_batman_data(df)
+#plot_batman_data(df)
+
+
+from plotting import plot_movies_by_genre
+
+def main():
+    year = 1989
+    plot_movies_by_genre(year)
+
+if __name__ == '__main__':
+    main()
 
 
 
