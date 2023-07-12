@@ -1,8 +1,69 @@
 import csv
+import pandas as pd
 
-           
+
+
+def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
+    # Cargar el archivo CSV en un DataFrame
+    df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
     
-# def filter_by_specific_values(nombre, columns_to_filter, values_to_filter):
+    # Filtrar el DataFrame usando los valores y columnas especificados
+    filtered_df = df[df[columns_to_filter[0]] == values_to_filter[0]]
+    for i in range(1, len(columns_to_filter)):
+        filtered_df = filtered_df[filtered_df[columns_to_filter[i]] == values_to_filter[i]]
+    
+    # Devolver el DataFrame filtrado
+    return filtered_df
+
+
+
+def export_to_csv(dataframe, columns_to_use, output_file_name):
+     # Crear un nuevo DataFrame con las columnas seleccionadas
+    selected_columns = dataframe[columns_to_use]
+    
+    # Exportar el DataFrame a un archivo CSV
+    selected_columns.to_csv(output_file_name, index=False)
+    # devolvemos el DataFrame que vamos a exportar
+    return selected_columns
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
+#     # Verificar la longitud de las listas
+#     if len(columns_to_filter) != len(values_to_filter):
+#         raise Exception("Por favor, 'columns_to_filter' y 'values_to_filter' deben tener la misma longitud.")
+    
+#     # Cargar el archivo CSV en un DataFrame
+#     df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
+    
+#     # Filtrar el DataFrame usando los valores y columnas especificados
+#     filtered_df = df.copy()
+#     for column, value in zip(columns_to_filter, values_to_filter):
+#         filtered_df = filtered_df[filtered_df[column] == value]
+    
+#     # Devolver el DataFrame filtrado
+#     return filtered_df
+# nombre = './data/movies.csv'
+# columns_to_filter = ['Genre', 'Year']
+# values_to_filter = ['Drama', 1981]
+
+# filtered_data = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+# print(filtered_data)
+
+
+
+#def filter_by_specific_values(nombre, columns_to_filter, values_to_filter):
 #     if len(columns_to_filter) != len(values_to_filter):
         
 #          archivo_csv = './data/movies.csv'
@@ -31,102 +92,28 @@ import csv
 #     print(str(error))
 
 
-    
-import pandas as pd
-
-def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
-    # Cargar el archivo CSV en un DataFrame
-    df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
-    
-    # Filtrar el DataFrame usando los valores y columnas especificados
-    filtered_df = df[df[columns_to_filter[0]] == values_to_filter[0]]
-    for i in range(1, len(columns_to_filter)):
-        filtered_df = filtered_df[filtered_df[columns_to_filter[i]] == values_to_filter[i]]
-    
-    # Devolver el DataFrame filtrado
-    return filtered_df
 
 
 
 
 
 
-# nombre = './data/movies.csv'
-# columns_to_filter = ['Genre', 'Year']
-# values_to_filter = ['Drama', 1981]
-
-# new_dataframe = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
-# print(new_dataframe)
-
-
-# def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
-#     # Verificar la longitud de las listas
-#     if len(columns_to_filter) != len(values_to_filter):
-#         raise Exception("Por favor, 'columns_to_filter' y 'values_to_filter' deben tener la misma longitud.")
-    
-#     # Cargar el archivo CSV en un DataFrame
-#     df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
-    
-#     # Filtrar el DataFrame usando los valores y columnas especificados
-#     filtered_df = df.copy()
-#     for column, value in zip(columns_to_filter, values_to_filter):
-#         filtered_df = filtered_df[filtered_df[column] == value]
-    
-#     # Devolver el DataFrame filtrado
-#     return filtered_df
-# nombre = './data/movies.csv'
-# columns_to_filter = ['Genre', 'Year']
-# values_to_filter = ['Drama', 1981]
-
-# filtered_data = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
-# print(filtered_data)
 
 
 
 
-import pandas as pd
 
-# def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
-#      # Cargar el archivo CSV en un DataFrame
-#     df = pd.read_csv(file_name, encoding='latin1', delimiter= ';')
-    
-       
-    
-#     # Filtrar el DataFrame usando los valores y columnas especificados
-#     filtered_df = df[df[columns_to_filter[0]] == values_to_filter[0]]
-    
-#     for i in range(1, len(columns_to_filter)):
-#        filtered_df = filtered_df[filtered_df[columns_to_filter[i]] == values_to_filter[i]]
-    
-#     # Devolver el DataFrame filtrado
-#     return filtered_df
 
-def export_to_csv(dataframe, columns_to_use, output_file_name):
-     # Crear un nuevo DataFrame con las columnas seleccionadas
-    selected_columns = dataframe[columns_to_use]
-    
-    # Exportar el DataFrame a un archivo CSV
-    selected_columns.to_csv(output_file_name, index=False)
-    return selected_columns
+
+
+
+
+
+
+
     
     
     
-    
-# nombre = './data/movies.csv'
-# columns_to_filter = ['Genre', 'Year']
-# values_to_filter = ['Drama', 1981]
-
-# dataframeblabla = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
-
-
-
-# columns_to_use = ['Name', 'Genre', 'Year']
-# output_file_name = 'batman.csv'
-
-
-
-# print =  export_to_csv(dataframeblabla, columns_to_use, output_file_name)
-
 
 
 
