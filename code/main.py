@@ -26,21 +26,35 @@ import matplotlib.pyplot as plt
 # print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
 
 
-#df = pd.read_csv('batman.csv')
-#print(df)
-#print(df.info())
+df = pd.read_csv('batman.csv')
+
+# Obtener los nombres de las películas y el año
+names = df['Name']
+year = df['Year']
+
+# Crear la figura y los ejes del gráfico
+fig, ax = plt.subplots(figsize=(11, 11))
+bar_width = 0.5  # Ajusta este valor según tus necesidades
+
+
+# Graficar los datos
+ax.bar(names, year)
+
+# Configurar los títulos y etiquetas de los ejes
+ax.set_xlabel('Películas')
+ax.set_ylabel('Año 1981')
+ax.set_title('Peliculas por Genero (Drama en 1981)')
+ax.set_xticklabels(names, rotation=45, ha='center')
+
+# Girar las etiquetas del eje x
+plt.xticks(rotation=45)
+
+# Mostrar el gráfico
+plt.show()
 
 
 
 
-#csv_file = 'batman.csv'
-#plot_movie_data(csv_file)
-
-# Cargar el archivo CSV en un DataFrame
-#df = pd.read_csv('./data/movies.csv', encoding='latin1', delimiter= ';')
-
-# Llamar a la función para graficar los datos
-#plot_batman_data(df)
 
 
 from plotting import plot_movies_by_genre
