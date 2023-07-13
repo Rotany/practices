@@ -57,9 +57,10 @@ if __name__ == '__main__':
 from genre_and_year import plot_movies_by_genre_and_year
 
 def main():
-    genre = 'Drama'
+    direct = 'Woody Allen'
+
     year = 1981
-    plot_movies_by_genre_and_year(genre, year)
+    plot_movies_by_genre_and_year(direct , year)
 
 if __name__ == '__main__':
     main()

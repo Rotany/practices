@@ -80,7 +80,7 @@ def plot_movies_by_genre(year):
      ax.set_xlabel('Género')
      ax.set_ylabel('Cantidad de películas')
      ax.set_title('Cantidad de películas por género en 1989')
-
+     plt.xticks(rotation=45) 
      plt.show()
 
 if __name__ == '__main__':
