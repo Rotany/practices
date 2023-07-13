@@ -42,7 +42,7 @@ def plot_movies_by_direct(direct):
 
 
     # Graficar los datos
-    #ax.set_xticks(x_indices)
+    ax.set_xticks(range(len(movie_names)))
     ax.set_xticklabels(movie_names, rotation=45, ha='right') 
     ax.set_xlabel('Películas')
     ax.set_ylabel('Presupuesto')
