@@ -9,47 +9,47 @@ from budget_and_director import plot_movies_by_direct
 
 
 
-nombre = './data/movies.csv'
-columns_to_filter = ['Genre', 'Year']
-values_to_filter = ['Drama', 1981]
-filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
-print(filter_by_specific_values(nombre, columns_to_filter, values_to_filter))
+# nombre = './data/movies.csv'
+# columns_to_filter = ['Genre', 'Year']
+# values_to_filter = ['Drama', 1981]
+# filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+# print(filter_by_specific_values(nombre, columns_to_filter, values_to_filter))
 
 
 
 
 
-nombre = './data/movies.csv'
-columns_to_filter = ['Genre', 'Year']
-values_to_filter = ['Drama', 1981]
+# nombre = './data/movies.csv'
+# columns_to_filter = ['Genre', 'Year']
+# values_to_filter = ['Drama', 1981]
 
-dataframeblabla = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+# dataframeblabla = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
 
-columns_to_use = ['Name', 'Genre', 'Year']
-output_file_name = 'Batman.csv'
-print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
-
-
+# columns_to_use = ['Name', 'Genre', 'Year']
+# output_file_name = 'Batman.csv'
+# print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
 
 
 
 
-def main():
-    year = 1989
-    plot_movies_by_genre(year)
 
-if __name__ == '__main__':
-    main()
+
+# def main():
+#     year = 1989
+#     plot_movies_by_genre(year)
+
+# if __name__ == '__main__':
+#     main()
     
     
     
 
-def main():
-    direct = 'James Cameron'
-    plot_movies_by_direct(direct )
+# def main():
+#     direct = 'James Cameron'
+#     plot_movies_by_direct(direct )
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
     
     
     
@@ -82,6 +82,45 @@ if __name__ == '__main__':
 
 # Mostrar el gráfico
 #plt.show()
+
+
+
+# nombre = './data/world_population.csv'
+# columns_to_filter = ['Country/Territory', '2022 Population']
+# values_to_filter = ['Afghanistan',41128771 ]
+# filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+# print(filter_by_specific_values(nombre, columns_to_filter, values_to_filter))
+
+
+nombre = './data/Cien_bancos_mas_grandes.csv'
+columns_to_filter = ['Country']
+values_to_filter = ['Spain']
+filtered_data = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+print(filtered_data)
+
+
+
+nombre = './data/Cien_bancos_mas_grandes.csv'
+columns_to_filter = ['Country']
+values_to_filter = ['Spain']
+
+dataframeblabla = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+
+columns_to_use = ['Bank name', 'Country']
+output_file_name = 'Bancos.csv'
+print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
