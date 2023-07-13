@@ -76,7 +76,7 @@ def plot_movies_by_genre(year):
      fig, ax = plt.subplots(figsize=(10, 6))  # Ajusta el tamaño según tus necesidades
 
 # Graficar los datos
-     genre_counts.plot(kind='bar', ax=ax)
+     genre_counts.plot(kind='bar', ax=ax, color= ['blue','red','green', 'pink','yellow', 'orange','purple','gray','black'])
      ax.set_xlabel('Género')
      ax.set_ylabel('Cantidad de películas')
      ax.set_title('Cantidad de películas por género en 1989')

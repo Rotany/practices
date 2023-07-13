@@ -54,13 +54,14 @@ if __name__ == '__main__':
     
     
     
-from genre_and_year import plot_movies_by_genre_and_year
+from genre_and_year import plot_movies_by_direct
 
 def main():
-    direct = 'Woody Allen'
+    direct = 'James Cameron'
 
-    year = 1981
-    plot_movies_by_genre_and_year(direct , year)
+
+
+    plot_movies_by_direct(direct )
 
 if __name__ == '__main__':
     main()
