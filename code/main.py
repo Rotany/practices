@@ -1,8 +1,10 @@
-from filter import filter_by_specific_values
+
 import pandas as pd
 import matplotlib.pyplot as plt
+from filter import filter_by_specific_values
 from export import export_to_csv
 from plotting import plot_movies_by_genre
+from budget_and_director import plot_movies_by_direct
 #from plotting import plot_batman_data
 
 
@@ -28,7 +30,31 @@ output_file_name = 'Batman.csv'
 print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
 
 
-# df = pd.read_csv('batman.csv')
+
+
+
+
+def main():
+    year = 1989
+    plot_movies_by_genre(year)
+
+if __name__ == '__main__':
+    main()
+    
+    
+    
+
+def main():
+    direct = 'James Cameron'
+    plot_movies_by_direct(direct )
+
+if __name__ == '__main__':
+    main()
+    
+    
+    
+    
+    # df = pd.read_csv('batman.csv')
 
 # # Obtener los nombres de las películas y el año
 # names = df['Name']
@@ -57,30 +83,6 @@ print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
 # Mostrar el gráfico
 #plt.show()
 
-
-
-
-
-
-from plotting import plot_movies_by_genre
-
-def main():
-    year = 1989
-    plot_movies_by_genre(year)
-
-if __name__ == '__main__':
-    main()
-    
-    
-    
-from genre_and_year import plot_movies_by_direct
-
-def main():
-    direct = 'James Cameron'
-    plot_movies_by_direct(direct )
-
-if __name__ == '__main__':
-    main()
 
 
 
