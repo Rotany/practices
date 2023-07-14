@@ -1,14 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from filter import filter_by_specific_values
 
 def plot_movies_by_direct(direct):
-    # Cargar el archivo CSV en un DataFrame
-    df = pd.read_csv('./data/movies.csv', encoding= 'latin1', delimiter=';')
+    filtered_df = filter_by_specific_values(file_name= './data/movies.csv',columns_to_filter = ['Director'], values_to_filter = [direct])
 
-    # Filtrar los datos por género y año
-    filtered_df = df[(df['Director'] == direct)]
 
-    # Obtener los nombres de las películas
     movie_names = filtered_df['Name']
     genres = filtered_df['Genre']
 

@@ -13,7 +13,7 @@ def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
         filtered_df = filtered_df[filtered_df[columns_to_filter[i]] == values_to_filter[i]]
     
     # Devolver el DataFrame filtrado
-    return filtered_df
+    return filtered_df[columns_to_filter]
 
 
 
@@ -68,6 +68,7 @@ def filter_by_specific_values(file_name, columns_to_filter, values_to_filter):
 
     # Devolver el DataFrame filtrado
     return filtered_df
+
 
 
 
