@@ -56,40 +56,14 @@ from budget_and_director import plot_movies_by_direct
     
     # df = pd.read_csv('batman.csv')
 
-# # Obtener los nombres de las películas y el año
-# names = df['Name']
-# year = df['Year']
-
-# # Crear la figura y los ejes del gráfico
-# fig, ax = plt.subplots(figsize=(11, 6))
-# bar_width = 0.5  # Ajusta este valor según tus necesidades
-
-# #obtener los índices para las barras
-
-# # Graficar los datos
-# ax.bar(range(len(names)), year, width=bar_width)
-
-# # Configurar los títulos y etiquetas de los ejes
-# ax.set_xlabel('Películas')
-# ax.set_ylabel('Año 1981')
-# ax.set_title('Peliculas por Genero (Drama en 1981)')
-# ax.set_xticks(range(len(names)))
-# ax.set_xticklabels(names, rotation=45, ha='right')
-
-
-# Girar las etiquetas del eje x
-#plt.xticks(rotation=45)
-
-# Mostrar el gráfico
-#plt.show()
 
 
 
-# nombre = './data/world_population.csv'
-# columns_to_filter = ['Country/Territory', '2022 Population']
-# values_to_filter = ['Afghanistan',41128771 ]
-# filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
-# print(filter_by_specific_values(nombre, columns_to_filter, values_to_filter))
+nombre = './data/world_population.csv'
+columns_to_filter = ['Continent' ]
+values_to_filter = ['Europe'  ]
+filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
+print(filter_by_specific_values(nombre, columns_to_filter, values_to_filter))
 
 
 nombre = './data/Cien_bancos_mas_grandes.csv'
@@ -100,15 +74,51 @@ print(filtered_data)
 
 
 
-nombre = './data/Cien_bancos_mas_grandes.csv'
-columns_to_filter = ['Country']
-values_to_filter = ['Spain']
+nombre = './data/world_population.csv'
+columns_to_filter = ['Continent']
+values_to_filter = ['North America', ]
 
 dataframeblabla = filter_by_specific_values(nombre, columns_to_filter, values_to_filter)
 
-columns_to_use = ['Bank name', 'Country']
-output_file_name = 'Bancos.csv'
+columns_to_use = ['Country','Growth Rate' ]
+
+output_file_name = 'world.csv'
 print(export_to_csv(dataframeblabla, columns_to_use, output_file_name))
+
+
+
+
+# Cargar los datos desde el archivo CSV
+df = pd.read_csv('world.csv',encoding='latin1', delimiter=',')
+print(df)
+
+# Obtener las columnas necesarias para el gráfico de pastel
+countries = df['Country']
+growth_rates = df['Growth Rate']
+
+# Crear el gráfico de pastel
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.bar(countries,growth_rates )
+plt.xticks(rotation = 45)
+ax.set_yticklabels(['{:.1f}%'.format(x * 1) for x in ax.get_yticks()])
+#ax.set_ylim(10, max(growth_rates) + 10)
+
+ax.set_xticks(range(len(countries )))
+ax.set_xticklabels(countries, rotation=45, ha='right') 
+
+
+# Agregar título
+ax.set_xlabel('Países')
+ax.set_ylabel('Tasa de crecimiento')
+ax.set_title('Tasa de crecimiento de países')
+
+# Mostrar el gráfico
+plt.show()
+
+
+
+    
+
 
 
 

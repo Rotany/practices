@@ -53,4 +53,7 @@ def plot_movies_by_direct(direct):
     plt.xticks(rotation=45)  # Ajusta el ángulo según tus necesidades
     
     plt.show()
+    
+    
+    
 
